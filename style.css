@@ -33,12 +33,12 @@ body {
   min-height: 100vh;
 }
 
-body::before {
+body.page-home::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: url('/images/bldlne-logo.png') center center / min(72vw, 560px) no-repeat;
-  opacity: 0.12;
+  background: url('/images/bldlne-logo.png') center center / min(78vw, 600px) no-repeat;
+  opacity: 0.14;
   pointer-events: none;
   z-index: 0;
 }
