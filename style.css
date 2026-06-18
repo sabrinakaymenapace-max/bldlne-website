@@ -33,14 +33,33 @@ body {
   min-height: 100vh;
 }
 
-body.page-home::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: url('/images/bldlne-logo.png') center center / min(78vw, 600px) no-repeat;
-  opacity: 0.14;
+body.page-home {
+  background-color: var(--off-white);
+}
+
+.home-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  display: grid;
+  grid-template-columns: minmax(160px, 300px) minmax(0, var(--max-width));
+  gap: 24px 40px;
+  align-items: start;
+  justify-content: center;
+}
+
+.home-logo {
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  align-self: center;
+  min-height: 320px;
+  background: url('/images/bldlne-logo.png') center left / contain no-repeat;
+  opacity: 0.16;
   pointer-events: none;
-  z-index: 0;
+}
+
+.home-content {
+  min-width: 0;
 }
 
 .site-header,
@@ -314,6 +333,21 @@ li {
 .site-footer__copyright {
   margin: 0;
   color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .home-main {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-logo {
+    position: static;
+    min-height: 200px;
+    max-width: 240px;
+    margin: 0 auto;
+    background-position: center center;
+  }
 }
 
 @media (max-width: 480px) {
