@@ -65,7 +65,13 @@ body.page-home {
 .page-home .hero,
 .page-home .transparency-card,
 .page-home .card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.page-home .card:hover {
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .site-header,
