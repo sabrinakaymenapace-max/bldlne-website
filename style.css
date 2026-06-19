@@ -83,22 +83,6 @@ body:not(.page-home)::before {
   min-width: 0;
 }
 
-.page-home .hero,
-.page-home .transparency-card,
-.page-home .card {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28)) padding-box,
-    var(--gold-gradient) border-box;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.page-home .card:hover {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)) padding-box,
-    var(--gold-gradient) border-box;
-}
-
 .site-header,
 main,
 .site-footer {
