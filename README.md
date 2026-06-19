@@ -40,6 +40,20 @@ Then visit http://localhost:8080
 
 Custom domain: add `bldlne.app` (or your subdomain) under **Custom domains** for the Pages project.
 
+## Web app (login / account access)
+
+The marketing site at `bldlne.app` links to the authenticated web app at **`https://app.bldlne.app`**.
+
+Deploy the Expo web app from the main `bldlne` repository:
+
+1. In Cloudflare → **Workers & Pages** → **Create** → connect the `bldlne` GitHub repo **or** use the `Deploy Web App` GitHub Action.
+2. Create a Pages project named **`bldlne-app`** (build output: `dist/` from `npx expo export --platform web`).
+3. Add custom domain **`app.bldlne.app`** under the project’s **Custom domains**.
+4. Add GitHub repository secrets for the workflow: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_ANON_KEY`.
+
+Sign in: https://app.bldlne.app/login  
+Sign up: https://app.bldlne.app/signup
+
 ## Support
 
 support@bldlne.app
