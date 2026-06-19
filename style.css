@@ -4,12 +4,15 @@
   --off-white: #f7f7f4;
   --gold: #c9a227;
   --gold-dark: #a8861f;
+  --gold-light: #e8d06a;
+  --gold-gradient: linear-gradient(135deg, #f0dc7a 0%, #d4af37 38%, #c9a227 62%, #8f7018 100%);
   --text: #111111;
   --text-secondary: #555555;
   --text-muted: #888888;
   --border: #e5e5e5;
   --max-width: 720px;
   --header-height: 64px;
+  --box-radius: 14px;
 }
 
 *,
@@ -33,21 +36,11 @@ body {
   min-height: 100vh;
 }
 
-body.page-home {
-  background-color: var(--off-white);
-}
-
-.home-main {
-  position: relative;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 32px 20px 48px;
-}
-
-.home-logo {
-  position: absolute;
+body::before {
+  content: '';
+  position: fixed;
   left: 50%;
-  top: 45%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: min(115vw, 680px);
   height: min(115vw, 720px);
@@ -55,6 +48,13 @@ body.page-home {
   opacity: 0.24;
   pointer-events: none;
   z-index: 0;
+}
+
+.home-main {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 20px 48px;
 }
 
 .home-content {
@@ -65,13 +65,17 @@ body.page-home {
 .page-home .hero,
 .page-home .transparency-card,
 .page-home .card {
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28)) padding-box,
+    var(--gold-gradient) border-box;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .page-home .card:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)) padding-box,
+    var(--gold-gradient) border-box;
 }
 
 .site-header,
@@ -237,18 +241,21 @@ li {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 2px solid transparent;
+  border-radius: var(--box-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)) padding-box,
+    var(--gold-gradient) border-box;
   padding: 20px;
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 28px rgba(17, 17, 17, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .card:hover {
-  border-color: var(--gold);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 32px rgba(201, 162, 39, 0.14);
+  transform: translateY(-1px);
 }
 
 .card h2 {
@@ -264,13 +271,15 @@ li {
 }
 
 .hero {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--gold);
-  border-radius: 12px;
+  border: 2px solid transparent;
+  border-radius: var(--box-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)) padding-box,
+    var(--gold-gradient) border-box;
   padding: 28px 24px;
   margin-bottom: 20px;
   text-align: center;
+  box-shadow: 0 8px 28px rgba(17, 17, 17, 0.06);
 }
 
 .hero__wordmark {
@@ -283,11 +292,14 @@ li {
 }
 
 .transparency-card {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 2px solid transparent;
+  border-radius: var(--box-radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)) padding-box,
+    var(--gold-gradient) border-box;
   padding: 24px;
   margin-bottom: 24px;
+  box-shadow: 0 8px 28px rgba(17, 17, 17, 0.06);
 }
 
 .transparency-card__title {
@@ -348,7 +360,7 @@ li {
 }
 
 @media (max-width: 768px) {
-  .home-logo {
+  body::before {
     width: min(130vw, 520px);
     height: min(130vw, 560px);
     opacity: 0.2;
