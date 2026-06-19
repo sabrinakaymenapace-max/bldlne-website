@@ -51,25 +51,23 @@ body:not(.page-home)::before {
 }
 
 .page-home .home-main {
-  max-width: 1080px;
-  display: grid;
-  grid-template-columns: minmax(160px, 300px) minmax(0, var(--max-width));
-  gap: 24px 40px;
-  align-items: start;
-  justify-content: center;
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 20px 48px;
 }
 
 .page-home .home-logo {
-  position: sticky;
-  top: calc(var(--header-height) + 24px);
-  align-self: center;
-  width: 100%;
-  height: calc(100vh - var(--header-height) - 48px);
-  max-height: 560px;
-  min-height: 280px;
-  background: url('/images/bldlne-logo.png') center left / contain no-repeat;
-  opacity: 0.24;
+  position: fixed;
+  left: max(8px, calc(50% - (var(--max-width) / 2) - min(46vw, 540px) - 24px));
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(46vw, 540px);
+  height: min(96vh, 900px);
+  background: url('/images/bldlne-logo.png') center center / contain no-repeat;
+  opacity: 0.22;
   pointer-events: none;
+  z-index: 0;
 }
 
 .home-main {
@@ -389,19 +387,13 @@ li {
     opacity: 0.2;
   }
 
-  .page-home .home-main {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
   .page-home .home-logo {
-    position: static;
-    height: 220px;
-    max-height: none;
-    min-height: 0;
-    max-width: 260px;
-    margin: 0 auto;
-    background-position: center center;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    width: min(92vw, 480px);
+    height: min(72vh, 560px);
+    opacity: 0.16;
   }
 }
 
